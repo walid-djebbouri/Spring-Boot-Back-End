@@ -1,0 +1,3 @@
+jwt:
+  secret: PzX6k8Qv9N4sV7dWfR2mJtY1KcLbA8xEe5HuG3qZnS7rTyUi0OpDf4MwCxBj9VaR
+  expired: 86400000
