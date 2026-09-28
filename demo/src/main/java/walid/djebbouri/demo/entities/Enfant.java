@@ -1,6 +1,8 @@
 package walid.djebbouri.demo.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 @Entity
@@ -14,19 +16,19 @@ public class Enfant {
     private String prenom;
     private int age;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name="id_pere" ,referencedColumnName = "id")
+    @JsonIgnoreProperties({"enfants", "homes"})
     private Pere pere;
 
 
     public Enfant() {
     }
 
-    public Enfant( String nom, String prenom, int age, Pere pere) {
+    public Enfant( String nom, String prenom, int age) {
         this.nom = nom;
         this.prenom = prenom;
         this.age = age;
-        this.pere = pere;
     }
 
     public Long getId() {

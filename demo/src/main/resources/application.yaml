@@ -5,9 +5,9 @@ spring:
     name: demo
 
   datasource:
-    url: jdbc:mariadb://localhost:3307/walid_db
-    username: springuser
-    password: springpass
+    url: jdbc:mariadb://localhost:3306/walid_db
+    username: root
+    password: root
     driver-class-name: org.mariadb.jdbc.Driver
     hikari:
       initialization-fail-timeout: 0

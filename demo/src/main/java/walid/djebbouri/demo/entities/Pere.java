@@ -1,5 +1,6 @@
 package walid.djebbouri.demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -15,7 +16,8 @@ public class Pere {
     private String prenom ;
     private int age;
 
-    @OneToMany(mappedBy = "pere",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "pere",fetch = FetchType.LAZY,cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<Enfant>  enfants = new ArrayList<Enfant>();
 
     public Pere() {}
@@ -24,7 +26,6 @@ public class Pere {
         this.nom = nom;
         this.prenom = prenom;
         this.age = age;
-        this.enfants =  new ArrayList<Enfant>();
     }
     public Long getId() {
         return id;
@@ -65,5 +66,7 @@ public class Pere {
     public void setAge(int age) {
         this.age = age;
     }
+
+
 
 }
